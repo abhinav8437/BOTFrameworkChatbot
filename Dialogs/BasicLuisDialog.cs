@@ -31,7 +31,7 @@ namespace Microsoft.Bot.Sample.LuisBot
         public async Task InterestedToBuyCarIntent(IDialogContext context, IAwaitable<IMessageActivity> message, LuisResult result)
         {   
             var message_forward = await message as Activity;
-            await context.PostAsync(result.Entities[0].Entity);
+            await context.PostAsync(result.Entities[0].Type);
             //await context.Forward(new InterestedToBuyCarClass(), this.afterBuyDialog, message_forward, CancellationToken.None,);
             await this.ShowLuisResult(context, result);
         }
