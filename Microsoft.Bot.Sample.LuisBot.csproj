@@ -178,7 +178,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Dialogs\EmptyClass.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
