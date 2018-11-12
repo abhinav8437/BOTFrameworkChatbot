@@ -30,8 +30,8 @@ namespace Microsoft.Bot.Sample.LuisBot
         [LuisIntent("InterestedToBuyCar")]
         public async Task InterestedToBuyCarIntent(IDialogContext context,IAwaitable<IMessageActivity> message, LuisResult result)
         {   
-            await context.Forward(new InterestedToBuyCarClass(), this.ShowLuisResult(context, result), message, CancellationToken.None);
-            //  await this.ShowLuisResult(context,result);
+            //await context.Forward(new InterestedToBuyCarClass(), this.ShowLuisResult(context, result), message, CancellationToken.None);
+              await this.ShowLuisResult(context,result);
         }
         [LuisIntent("Greeting")]
         public async Task GreetingIntent(IDialogContext context, LuisResult result)
