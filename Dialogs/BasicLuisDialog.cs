@@ -29,10 +29,11 @@ namespace Microsoft.Bot.Sample.LuisBot
         // Finally replace "Greeting" with the name of your newly created intent in the following handler
         [LuisIntent("InterestedToBuyCar")]
         public async Task InterestedToBuyCarIntent(IDialogContext context, IAwaitable<IMessageActivity> message, LuisResult result)
-        {
+        {   
             var message_forward = await message as Activity;
-            await context.Forward(new InterestedToBuyCarClass(), this.afterBuyDialog, message_forward, CancellationToken.None,);
-            //await this.ShowLuisResult(context, result);
+            context.PostAsync(result.Entities[0].Entity);
+            //await context.Forward(new InterestedToBuyCarClass(), this.afterBuyDialog, message_forward, CancellationToken.None,);
+            await this.ShowLuisResult(context, result);
         }
 
         private async Task afterBuyDialog(IDialogContext context, IAwaitable<IMessageActivity> message)
