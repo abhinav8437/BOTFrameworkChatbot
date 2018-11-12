@@ -2,7 +2,7 @@ using System;
 using System.Configuration;
 using System.Threading.Tasks;
 using System.Threading;
-using Microsoft.Bot.Connector
+using Microsoft.Bot.Connector;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Builder.Luis;
 using Microsoft.Bot.Builder.Luis.Models;
@@ -53,7 +53,7 @@ namespace Microsoft.Bot.Sample.LuisBot
         
         private async Task ShowLuisResult(IDialogContext context, LuisResult result) 
         {
-            await context.PostAsync($"You have reached {result.Intents[0].Intent}. You said: {result.Query}, also shut");
+            await context.PostAsync($"You have reached {result.Intents[0].Intent}. You said: {result.Query}, bccssdfr");
             context.Wait(MessageReceived);
         }
  
