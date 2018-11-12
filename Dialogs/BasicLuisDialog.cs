@@ -1,8 +1,8 @@
 using System;
 using System.Configuration;
 using System.Threading.Tasks;
-
-
+using System.Threading;
+using Microsoft.Bot.Connector
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Builder.Luis;
 using Microsoft.Bot.Builder.Luis.Models;
@@ -27,12 +27,12 @@ namespace Microsoft.Bot.Sample.LuisBot
 
         // Go to https://luis.ai and create a new intent, then train/publish your luis app.
         // Finally replace "Greeting" with the name of your newly created intent in the following handler
-        //[LuisIntent("InterestedToBuyCar")]
-        //public async Task InterestedToBuyCarIntent(IDialogContext context,IAwaitable<IMessageActivity> message, LuisResult result)
-        //{   var message = await message as Activity;
-        //    await context.Forward(new InterestedToBuyCarClass(),this.ShowLuisResult(context,result),message, CancellationToken.None);
-        //    //  await this.ShowLuisResult(context,result);
-        //}
+        [LuisIntent("InterestedToBuyCar")]
+        public async Task InterestedToBuyCarIntent(IDialogContext context,IAwaitable<IMessageActivity> message, LuisResult result)
+        {   
+            await context.Forward(new InterestedToBuyCarClass(), this.ShowLuisResult(context, result), message, CancellationToken.None);
+            //  await this.ShowLuisResult(context,result);
+        }
         [LuisIntent("Greeting")]
         public async Task GreetingIntent(IDialogContext context, LuisResult result)
         {
